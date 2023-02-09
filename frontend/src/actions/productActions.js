@@ -1,4 +1,4 @@
-import { axios } from 'axios'
+import axios from 'axios'
 import { 
   PRODUCT_LIST_REQUEST,
   PRODUCT_LIST_SUCCESS,
@@ -9,7 +9,7 @@ import {
   try {
       dispatch({ type: PRODUCT_LIST_REQUEST })
 
-      const { data } = await axios.get(`/api/products/`)
+      const { data } = await axios.get('/api/products/')
 
       dispatch({
           type: PRODUCT_LIST_SUCCESS,
