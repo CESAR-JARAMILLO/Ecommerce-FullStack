@@ -5,8 +5,8 @@ import { LinkContainer } from 'react-router-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
-import { getUserDetails } from '../actions/userActions'
-// import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants'
+import { getUserDetails, updateUserProfile } from '../actions/userActions'
+import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants'
 // import { listMyOrders } from '../actions/orderActions'
 
 function ProfileScreen() {
@@ -38,7 +38,7 @@ function ProfileScreen() {
             navigate('/login')
         } else {
             if (!user || !user.name || success || userInfo._id !== user._id) {
-                // dispatch({ type: USER_UPDATE_PROFILE_RESET })
+                dispatch({ type: USER_UPDATE_PROFILE_RESET })
                 dispatch(getUserDetails('profile'))
                 // dispatch(listMyOrders())
             } else {
@@ -54,12 +54,12 @@ function ProfileScreen() {
         if (password !== confirmPassword) {
             setMessage('Passwords do not match')
         } else {
-            // dispatch(updateUserProfile({
-            //     'id': user._id,
-            //     'name': name,
-            //     'email': email,
-            //     'password': password
-            // }))
+            dispatch(updateUserProfile({
+                'id': user._id,
+                'name': name,
+                'email': email,
+                'password': password
+            }))
             setMessage('')
         }
 
