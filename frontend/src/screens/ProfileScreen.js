@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Form, Button, Row, Col, Table } from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
+import { Form, Button, Row, Col } from 'react-bootstrap'
+// import { LinkContainer } from 'react-router-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
@@ -29,8 +29,8 @@ function ProfileScreen() {
     const userUpdateProfile = useSelector(state => state.userUpdateProfile)
     const { success } = userUpdateProfile
 
-    const orderListMy = useSelector(state => state.orderListMy)
-    const { loading: loadingOrders, error: errorOrders, orders } = orderListMy
+    // const orderListMy = useSelector(state => state.orderListMy)
+    // const { loading: loadingOrders, error: errorOrders, orders } = orderListMy
 
 
     useEffect(() => {
@@ -131,7 +131,7 @@ function ProfileScreen() {
 
             <Col md={9}>
                 <h2>My Orders</h2>
-                {loadingOrders ? (
+                {/* {loadingOrders ? (
                     <Loader />
                 ) : errorOrders ? (
                     <Message variant='danger'>{errorOrders}</Message>
@@ -166,7 +166,7 @@ function ProfileScreen() {
                                     ))}
                                 </tbody>
                             </Table>
-                        )}
+                        )} */}
             </Col>
         </Row>
     )
