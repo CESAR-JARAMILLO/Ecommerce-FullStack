@@ -30,8 +30,9 @@ function CartScreen() {
         dispatch(removeFromCart(id))
     }
 
+    // Temporary fix. Add token authentication if user is logged in. If not send to login screen.
     const checkoutHandler = () => {
-        navigate('/login?redirect=shipping')
+        navigate('/shipping')
     }
 
     return (
